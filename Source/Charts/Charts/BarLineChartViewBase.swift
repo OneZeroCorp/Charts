@@ -835,8 +835,8 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     private func isTouchInverted() -> Bool
     {
         return isAnyAxisInverted &&
-            _closestDataSetToTouch !== nil &&
-            getAxis(_closestDataSetToTouch.axisDependency).isInverted
+            (_closestDataSetToTouch === nil ||
+            getAxis(_closestDataSetToTouch.axisDependency).isInverted)
     }
     
     @objc open func stopDeceleration()
